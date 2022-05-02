@@ -8,7 +8,7 @@ This project act as an example on how to integrate DriveSmart (*DS*  in advance)
 ## Requisites
 * [Cocoapods](https://cocoapods.org) as the dependency manager
 * iOS 12.1 in advance as requirement
-* An __access_token__ provided by *DS*
+* An __framework_download_link__ provided by *DS*
 * You will need an __license key__ provided by *DS*  in order to make your app work with our *DSTracker*.
 * Your app needs to be configured for request user location (follow [Apple documentation](https://developer.apple.com/documentation/corelocation/adding_location_services_to_your_app) )
 
@@ -16,45 +16,29 @@ If your project doesn´t fills any of this requirements please contact us at [mo
 
 ## 1) Installation
 
-### 1.1) Add the __access_token__ to your Podfile
-Add this line to the top of your  _Podfile_:
-```ds_pod_repo_token = "REPLACE_WITH_THE_PROVIDED_ACCESS_TOKEN"```
-Replace _REPLACE_WITH_THE_PROVIDED_ACCESS_TOKEN_ with the __access_token__ provided by *DS*
-
-> Giving this you can treat this __access_token__ in a secure way on your CI/CD pipelines
-### 1.2) Add the *DS* Cocoapods respository as source on your Podifle
-In your _Podfile_, below line added in the previous step, add the following:
+### 1.1) Add the dependency to your Podfile
+``` pod 'DSTracker', type: :zip,  :http => 'REPLACE_WITH_THE_PROVIDED_LINK'```
+### 1.2) Replace the __framework_download_link__
+Replace `REPLACE_WITH_THE_PROVIDED_LINK` with the proper __framework_download_link__
 
 ```source "https://#{ds_pod_repo_token}@tfsdrivesmart.visualstudio.com/DefaultCollection/Drive%20Smart%202.0/_git/Private-Clients-Pod-Specs"```
 
-### 1.3) Add *DS* as a new dependency
-
-Add our *DSTracker* dependency on your targets Podfile as:
-
-```pod 'DSFramework'```
-
-### 1.4) Check your _Podfile_
+### 1.2) Check your _Podfile_
 It should look like this:
 
 ```
 platform :ios, '12.1'
 use_frameworks!
 
-# // MARK: - 1.1
-ds_pod_repo_token = "irjnntdvscy4jbfn6hxva6yq3ty6hcli6p3pbqqmlyibvzpuurpq"
-# // MARK: - 1.2
-source "https://#{ds_pod_repo_token}@tfsdrivesmart.visualstudio.com/DefaultCollection/Drive%20Smart%202.0/_git/Private-Clients-Pod-Specs"
-
 project 'DSTracker-Example'
 
 target 'DSTracker-Example' do
-  # MARK: - 1.3
-  pod 'DSTracker', '1.0.0'
+  pod 'DSTracker', type: :zip,  :http => 'https://....zip'
 end
 
 ```
 
-### 1.5) Install pods
+### 1.32) Install pods
 Just execute `pod install --repo-update` and open the workspace for the app to run.
 
 ## 2) Configure the *DSTracker*
