@@ -1,0 +1,14 @@
+//
+//  Dev-Config.xcconfig
+//  DSTracker-Example
+//
+//  Created by DriveSmart on 7/12/21.
+//  Copyright © 2021 DriveSmart. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-DSTracker-Example/Pods-DSTracker-Example.debug.xcconfig"
+
+DSTRACKER_LICENSE_KEY=REPLACE_THIS_WITH_YOUR_DEVELOPMENT_LICENSE_KEY
