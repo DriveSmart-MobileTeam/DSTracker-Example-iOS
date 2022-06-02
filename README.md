@@ -1,18 +1,18 @@
 [![DSTracker](https://img.shields.io/badge/platform-iOS%2012.1-blue)](https://github.com/DriveSmart-MobileTeam/)
 [![Swift](https://img.shields.io/badge/Language-ObjectiveC%20Swift_5.0-orange)](https://img.shields.io/badge/Swift-5.Orange)
 
-# DriveSmart *DSTracker* Swift example
+# DriveSmart *Tracker* Swift example
 
-This project act as an example on how to integrate DriveSmart (*DS*  in advance) *DSTracker* on an iOS app written in Swift.
+This project act as an example on how to integrate DriveSmart (*DS*  in advance) *Tracker* on an iOS app written in Swift.
 
 ## Requisites
 * [Cocoapods](https://cocoapods.org) as the dependency manager
 * iOS 12.1 in advance as requirement
 * An __access_token__ provided by *DS*
-* You will need an __license key__ provided by *DS*  in order to make your app work with our *DSTracker*.
+* You will need an __license key__ provided by *DS*  in order to make your app work with our *Tracker*.
 * Your app needs to be configured for request user location (follow [Apple documentation](https://developer.apple.com/documentation/corelocation/adding_location_services_to_your_app) )
 
-If your project doesn´t fills any of this requirements please contact us at [mobileteam@drive-smart.com](mailto:mobileteam@drive-smart.com) in order to look for alternatives for use our *DSTracker*.
+If your project doesn´t fills any of this requirements please contact us at [mobileteam@drive-smart.com](mailto:mobileteam@drive-smart.com) in order to look for alternatives for use our *Tracker*.
 
 ## 1) Installation
 
@@ -29,7 +29,7 @@ In your _Podfile_, below line added in the previous step, add the following:
 
 ### 1.3) Add *DS* as a new dependency
 
-Add our *DSTracker* dependency on your targets Podfile as:
+Add our *Tracker* dependency on your targets Podfile as:
 
 ```pod 'DSFramework'```
 
@@ -57,16 +57,16 @@ end
 ### 1.5) Install pods
 Just execute `pod install --repo-update` and open the workspace for the app to run.
 
-## 2) Configure the *DSTracker*
+## 2) Configure the *Tracker*
 
-In order to configure the *DSTracker* to work with yours *DS* account credentials, it needs you to provide the __license key__.
+In order to configure the *Tracker* to work with yours *DS* account credentials, it needs you to provide the __license key__.
 
-As the main purpouse of the *DSTracker* is to track user device location, the app to use it needs to be granted with `Location Always` user permission for it to work on foreground and background.
+As the main purpouse of the *Tracker* is to track user device location, the app to use it needs to be granted with `Location Always` user permission for it to work on foreground and background.
 
-> If your app pretends to use the *DSTracker* intensively we encourage you to do this in your _UIApplicationDelegate_.
+> If your app pretends to use the *Tracker* intensively we encourage you to do this in your _UIApplicationDelegate_.
 > 
 ### 2.1) Default configuration
-In this way the *DSTracker* will rely on that your app already handles the permissions request and will operate silently, but informing about any arros using the `TrackerListenerInterface`, so we encourage you to implement it for keep track of those errors.
+In this way the *Tracker* will rely on that your app already handles the permissions request and will operate silently, but informing about any arros using the `TrackerListenerInterface`, so we encourage you to implement it for keep track of those errors.
 
 ```
 import DSTracker
@@ -84,8 +84,8 @@ func anySwiftFunction() {
 
 > In this demo project you can add this license key to the `Debug-Config.xcconfig` and `Release-Config.xcconfig` files included being, you can find more info about this `*.xconfig` files in [this post](https://nshipster.com/xcconfig/).
 
-### 2.2) Configure the Tracker to request permissions
-You can configure the *DSTracker* for let it request permissions to the user just when needed:
+### 2.2) Configure the *Tracker* to request permissions
+You can configure the *Tracker* for let it request permissions to the user just when needed:
 
 ```
 import DSTracker
@@ -104,12 +104,12 @@ func anySwiftFunction() {
 }
 ```
 
-## 3) Setup the *DSTracker* with your users
+## 3) Setup the *Tracker* with your users
 > You can check this section followin code of "SetupViewController" class provided inside the example project 
 
-As you pretend to use *DSTracker* for record trips associated with your users, you will need to identify them within the *DSTracker*. For that you have 2 options:
+As you pretend to use *Tracker* for record trips associated with your users, you will need to identify them within the *Tracker*. For that you have 2 options:
 
-### 3.a) Register your user into the DS *DSTracker* 
+### 3.a) Register your user into the *Tracker* 
 
 ```
 import DSTracker
@@ -130,8 +130,8 @@ func anySwiftFunction() {
 }
 ```
 > In order to improve the setup workflow we recommend you to store the "trackerUserId" returned here for use it in future app runs using the method below.
-### 3.b) Setup with a known DSTracker user identifier
-If you known the *DSTracker* user id, or you stored the one provided in teh step *3.a*, you can just use it for a quick setup like:
+### 3.b) Setup with a known *Tracker* user identifier
+If you known the *Tracker* user id, or you stored the one provided in teh step *3.a*, you can just use it for a quick setup like:
 
 ```
 import DSTracker
@@ -149,6 +149,25 @@ func anySwiftFunction() {
 }
 ```
 
+### 3.c) Get a DSTracker user identifier for you to associate it with your user
+If you dont´w wnat to pass your user's identifier to our systems for us to stablish the relationship with our user identifier, you can get a DSTracker user identifier for yopu to save it and stablish the relationship with your userts. For that use this:
+
+
+```
+import DSTracker
+
+func anySwiftFunction() {
+    Tracker.setUserId("a known DSTracker user identifier") { result in
+        if let error = result.failure {
+            print("\(#file) - \(#function) addUniqueUserId error=\(error.localizedDescription)")
+        }
+        guard let trackerUserId = result.success as? String else {
+            print("\(#file) - \(#function) Response doesn't contains a DS user ID, please contact DS.")
+            return
+        }
+    }
+}
+```
 
 ## 4) Trip recording
 > You can check this section following code of "TripRecordingViewController" class provided inside the example project.
@@ -161,7 +180,7 @@ This method will start capturing device location inmediately based until you cal
         Tracker.start()
 ```
 ### 4.2) Get information about the trip in progress
-At any time that *DSTracker* is recordin a trip, you can check how it is going, again taking as example the code inside `TripRecordingViewController`, you can do something similar to:
+At any time that *Tracker* is recordin a trip, you can check how it is going, again taking as example the code inside `TripRecordingViewController`, you can do something similar to:
 ```
     @objc func getTrackingStatusInfo() {
         let trackingStatus = Tracker.getStatus()
@@ -192,8 +211,8 @@ This will stop capturing device location and will try to send all pending tracki
         // MARK: - 7) Stop trip recording
         Tracker.stop()
 ```
-## 6) [Optional] Get informed about *DSTracker* events and errors
-The *DSTracker* uses delegation for inform about important internal events that you may need for your integration. 
+## 6) [Optional] Get informed about *Tracker* events and errors
+The *Tracker* uses delegation for inform about important internal events that you may need for your integration. 
 For that, provide the delegate implementation of `TrackerListenerInterface` like:
 ```
 extension TripRecordingViewController: DSTrackerDelegate {

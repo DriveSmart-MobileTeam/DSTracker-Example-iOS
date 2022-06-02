@@ -10,5 +10,5 @@ project 'DSTracker-Example'
 
 target 'DSTracker-Example' do
   # MARK: - 1.3
-  pod 'DSTracker', '1.0.0'
+  pod 'DSTracker', '1.2.0'
 end

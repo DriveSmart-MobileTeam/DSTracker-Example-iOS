@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		99856D1A244463050063C634 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856D19244463050063C634 /* AppDelegate.swift */; };
 		99856D1C244463050063C634 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856D1B244463050063C634 /* SceneDelegate.swift */; };
-		99856D1E244463050063C634 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856D1D244463050063C634 /* SetupViewController.swift */; };
+		99856D1E244463050063C634 /* UserIdentificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856D1D244463050063C634 /* UserIdentificationVC.swift */; };
 		99856D21244463050063C634 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99856D1F244463050063C634 /* Main.storyboard */; };
 		99856D232444630A0063C634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99856D222444630A0063C634 /* Assets.xcassets */; };
 		99856D262444630A0063C634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99856D242444630A0063C634 /* LaunchScreen.storyboard */; };
@@ -25,7 +25,7 @@
 		99856D16244463050063C634 /* DSTracker-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSTracker-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99856D19244463050063C634 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99856D1B244463050063C634 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		99856D1D244463050063C634 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		99856D1D244463050063C634 /* UserIdentificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentificationVC.swift; sourceTree = "<group>"; };
 		99856D20244463050063C634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99856D222444630A0063C634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99856D252444630A0063C634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 				9F33FD012759F5BD00521FE2 /* PrintDebug.swift */,
 				9F7407EE275FC04C0094268C /* Release-Config.xcconfig */,
 				99856D1B244463050063C634 /* SceneDelegate.swift */,
-				99856D1D244463050063C634 /* SetupViewController.swift */,
+				99856D1D244463050063C634 /* UserIdentificationVC.swift */,
 				99856D2D2444760B0063C634 /* TripRecordingViewController.swift */,
 			);
 			path = "DSTracker-Example";
@@ -237,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99856D1E244463050063C634 /* SetupViewController.swift in Sources */,
+				99856D1E244463050063C634 /* UserIdentificationVC.swift in Sources */,
 				99856D2E2444760C0063C634 /* TripRecordingViewController.swift in Sources */,
 				9F33FD022759F5BD00521FE2 /* PrintDebug.swift in Sources */,
 				99856D1A244463050063C634 /* AppDelegate.swift in Sources */,

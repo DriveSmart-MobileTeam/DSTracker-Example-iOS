@@ -9,7 +9,7 @@
 import UIKit
 import DSTracker
 
-final class SetupViewController: UIViewController {
+final class UserIdentificationVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var uniqueUserIDTextField: UITextField!
     @IBOutlet weak var dsUserIDTextField: UITextField!
@@ -23,6 +23,9 @@ final class SetupViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        uniqueUserIDTextField.delegate = self
+        dsUserIDTextField.delegate = self
+
         if let driveSmartUserId = UserDefaults.standard.string(forKey: "driveSmartUserId") {
             dsUserIDTextField.text = driveSmartUserId
         }
@@ -66,11 +69,40 @@ final class SetupViewController: UIViewController {
         }
     }
 
+    // MARK: - 3.c) Allow DS to registert a new user for you
+    @IBAction func anonymousRegistration(_ sender: Any) {
+        Tracker.getAnonymousUserId { outcome in
+            if let error = outcome.failure {
+                print("🐛❌\(#file) - \(#function) error=\(error)")
+            }
+            guard let dsUserId = outcome.success as? String else {
+                print("🐛❌\(#file) - \(#function) Response doesn't contains a DS user ID, please contact DS.")
+                return
+            }
+            self.dsUserId = dsUserId
+            print("🐛✅ \(#file) - \(#function) userId: \(dsUserId)")
+            // MARK: - On success, the DS SDK is setted up with a DS user ID, so you are ready to start recording trip for that user
+            self.performSegue(withIdentifier: "showTestTrip", sender: nil)
+        }
+    }
+
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let recordingVC = segue.destination as? TripRecordingViewController,
               let dsUserId = self.dsUserId else {
             return
         }
         recordingVC.dsUserId = dsUserId
+    }
+
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == uniqueUserIDTextField {
+            signInUniqueId(self)
+        } else if textField == dsUserIDTextField {
+            setupDSUserID(self)
+        }
+        return true
     }
 }

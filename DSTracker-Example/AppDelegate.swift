@@ -19,11 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // MARK: - 2
         if let licenseKey = Bundle.main.infoDictionary?["DSTRACKER_LICENSE_KEY"] as? String {
-            Tracker.configure(licenseKey: licenseKey) { result in
-                if let error = result.failure {
-                    fatalError(error.localizedDescription)
-                } else if let successData = result.success {
-                    print("🐛✅\(#function) DSTracker.configure result:\(successData)")
+            Tracker.configure(licenseKey: licenseKey,
+                              doRequestPermissions: true) { outcome in
+                if let error = outcome.failure {
+                    print(error.localizedDescription)
+                } else if let success = outcome.success as? Bool, success {
+                    print("🐛\(#file.split(separator: "/").last ?? "") - \(#function) Success")
                 }
             }
         }

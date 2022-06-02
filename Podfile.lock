@@ -1,0 +1,16 @@
+PODS:
+  - DSTracker (1.2.0)
+
+DEPENDENCIES:
+  - DSTracker (= 1.2.0)
+
+SPEC REPOS:
+  "https://rk6r7qyry6vypclnwh7mutcxrk5lickluxik2l23qns6p3ebytzq@tfsdrivesmart.visualstudio.com/DefaultCollection/Drive%20Smart%202.0/_git/Private-Clients-Pod-Specs":
+    - DSTracker
+
+SPEC CHECKSUMS:
+  DSTracker: c891b1d7b8e21b18888f95aedcb415148e167734
+
+PODFILE CHECKSUM: a07209572836118b8721c8eebe687599eb37a3ab
+
+COCOAPODS: 1.11.3

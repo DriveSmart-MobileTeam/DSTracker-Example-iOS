@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Twl-Dm-mT8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Twl-Dm-mT8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-664" y="139"/>
         </scene>
-        <!--Setup View Controller-->
+        <!--User IdentificationVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SetupViewController" customModule="DSTracker_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="UserIdentificationVC" customModule="DSTracker_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rMe-he-u4o"/>
                         <viewControllerLayoutGuide type="bottom" id="BYx-Va-NjR"/>
@@ -36,90 +36,163 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="N15-uc-hd1">
-                                <rect key="frame" x="24" y="96" width="99" height="17"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzy-VM-jJr">
-                                <rect key="frame" x="20" y="367.5" width="374" height="38"/>
-                                <color key="backgroundColor" red="0.12549019610000001" green="0.77647058820000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
-                                <state key="normal" title="Register a unique user ID">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signInUniqueId:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G5R-Ko-pJq"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register a new unique user identifier" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qih-nJ-DbK">
-                                <rect key="frame" x="20" y="280" width="374" height="21.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unique ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qlO-PF-VwC">
-                                <rect key="frame" x="20" y="317.5" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fo-LD-C67">
-                                <rect key="frame" x="20" y="578" width="374" height="38"/>
-                                <color key="backgroundColor" red="0.12549019610000001" green="0.77647058820000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
-                                <state key="normal" title="Setup with DS user ID">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="setupDSUserID:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gQo-p4-Cm1"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup a known DriveSmart user identifier" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMv-ui-aZm">
-                                <rect key="frame" x="20" y="490.5" width="374" height="21.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DriveSmart user identifier" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UP4-Li-bNK">
-                                <rect key="frame" x="20" y="528" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kec-9F-i9g">
-                                <rect key="frame" x="192.5" y="437.5" width="29" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="R9s-Bx-ICB">
+                                <rect key="frame" x="20" y="88" width="374" height="560.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="GoV-zy-0Mi">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VTp-v3-Euk">
+                                        <rect key="frame" x="0.0" y="33" width="374" height="157.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PH3-xT-wwo">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="kjW-V7-n7w"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register a new unique user identifier" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhb-Yt-Yqs">
+                                                <rect key="frame" x="0.0" y="16" width="374" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unique ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pMn-us-kIh">
+                                                <rect key="frame" x="0.0" y="53.5" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thf-01-yXg">
+                                                <rect key="frame" x="0.0" y="103.5" width="374" height="38"/>
+                                                <color key="backgroundColor" red="0.12549019610000001" green="0.77647058820000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Register a unique user ID">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signInUniqueId:" destination="BYZ-38-t0r" eventType="touchUpInside" id="msi-kN-nT5"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nse-Mr-smj">
+                                                <rect key="frame" x="0.0" y="157.5" width="374" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="h6o-vB-59D"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iD3-8Z-GuA">
+                                        <rect key="frame" x="0.0" y="206.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OID-tg-fsn">
+                                        <rect key="frame" x="0.0" y="243" width="374" height="157.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9h-yZ-Jjk">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="b1O-UF-KTd"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup a known DriveSmart user identifier" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gf-iG-p9r">
+                                                <rect key="frame" x="0.0" y="16" width="374" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DriveSmart user identifier" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cem-Tb-Ynp">
+                                                <rect key="frame" x="0.0" y="53.5" width="374" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbn-JQ-AqM">
+                                                <rect key="frame" x="0.0" y="103.5" width="374" height="38"/>
+                                                <color key="backgroundColor" red="0.12549019610000001" green="0.77647058820000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Setup with DS user ID">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setupDSUserID:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NDh-Hp-1FA"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jT-YQ-9wB">
+                                                <rect key="frame" x="0.0" y="157.5" width="374" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="qBS-2F-ktl"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCn-sS-amR">
+                                        <rect key="frame" x="0.0" y="416.5" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xfz-2t-Fhb">
+                                        <rect key="frame" x="0.0" y="453" width="374" height="107.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i1Z-zg-FpX">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="X2r-nn-HJa"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow DriveSmart generate a user identifier" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpm-sR-3uz">
+                                                <rect key="frame" x="0.0" y="16" width="374" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvq-In-LPY">
+                                                <rect key="frame" x="0.0" y="53.5" width="374" height="38"/>
+                                                <color key="backgroundColor" red="0.12549019610000001" green="0.77647058820000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Generate a DS user ID">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="anonymousRegistration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z8F-2f-uOZ"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="igU-cS-tHb">
+                                                <rect key="frame" x="0.0" y="107.5" width="374" height="0.0"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="QV7-sG-0rY"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Uzy-VM-jJr" firstAttribute="top" secondItem="qlO-PF-VwC" secondAttribute="bottom" constant="16" id="0FN-44-kSZ"/>
-                            <constraint firstItem="QMv-ui-aZm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4Lq-oQ-q81"/>
-                            <constraint firstItem="qlO-PF-VwC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="7xz-yS-RCS"/>
-                            <constraint firstItem="N15-uc-hd1" firstAttribute="top" secondItem="rMe-he-u4o" secondAttribute="bottom" constant="8" id="DTH-cg-aJU"/>
-                            <constraint firstItem="UP4-Li-bNK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="GUb-h0-Hvc"/>
-                            <constraint firstItem="kec-9F-i9g" firstAttribute="top" secondItem="Uzy-VM-jJr" secondAttribute="bottom" constant="32" id="NXV-AB-IGJ"/>
-                            <constraint firstItem="UP4-Li-bNK" firstAttribute="top" secondItem="QMv-ui-aZm" secondAttribute="bottom" constant="16" id="Pq4-7X-52G"/>
-                            <constraint firstItem="N15-uc-hd1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="24" id="QdZ-Ko-nqf"/>
-                            <constraint firstItem="QMv-ui-aZm" firstAttribute="top" secondItem="kec-9F-i9g" secondAttribute="bottom" constant="32" id="ROk-Nv-5s8"/>
-                            <constraint firstItem="kec-9F-i9g" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ruu-bp-Ohw"/>
-                            <constraint firstItem="QMv-ui-aZm" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="YUf-b8-fIb"/>
-                            <constraint firstItem="UP4-Li-bNK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ciE-zK-p8q"/>
-                            <constraint firstItem="kec-9F-i9g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cvB-hp-2IY"/>
-                            <constraint firstItem="qlO-PF-VwC" firstAttribute="top" secondItem="qih-nJ-DbK" secondAttribute="bottom" constant="16" id="d5D-QJ-Ov9"/>
-                            <constraint firstItem="qlO-PF-VwC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eMI-UY-g98"/>
-                            <constraint firstItem="qih-nJ-DbK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="j9h-fV-hqe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Uzy-VM-jJr" secondAttribute="trailing" id="jlD-Yl-amQ"/>
-                            <constraint firstItem="5fo-LD-C67" firstAttribute="top" secondItem="UP4-Li-bNK" secondAttribute="bottom" constant="16" id="jzU-fw-ifz"/>
-                            <constraint firstItem="Uzy-VM-jJr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kOm-MH-7Ut"/>
-                            <constraint firstItem="5fo-LD-C67" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="qc9-Hh-5Gx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qih-nJ-DbK" secondAttribute="trailing" id="sUv-mf-Rqk"/>
-                            <constraint firstItem="5fo-LD-C67" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yGj-vg-2KT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R9s-Bx-ICB" secondAttribute="trailing" id="42Z-UG-RmC"/>
+                            <constraint firstItem="R9s-Bx-ICB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="I5W-jd-8PM"/>
+                            <constraint firstItem="R9s-Bx-ICB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="M68-w8-xA1"/>
+                            <constraint firstItem="BYx-Va-NjR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="R9s-Bx-ICB" secondAttribute="bottom" id="zDR-Kr-Rgx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rB3-iw-QwH"/>
                     <connections>
-                        <outlet property="dsUserIDTextField" destination="UP4-Li-bNK" id="Ep0-ak-7V1"/>
-                        <outlet property="uniqueUserIDTextField" destination="qlO-PF-VwC" id="Y3Y-Qv-es6"/>
+                        <outlet property="dsUserIDTextField" destination="cem-Tb-Ynp" id="kFh-l8-iEA"/>
+                        <outlet property="uniqueUserIDTextField" destination="pMn-us-kIh" id="FbK-QL-xuO"/>
                         <segue destination="SvL-eh-9gS" kind="show" identifier="showTestTrip" id="kS3-7J-lUp"/>
                     </connections>
                 </viewController>
@@ -492,6 +565,9 @@
         <image name="logo" width="99" height="17"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
