@@ -31,7 +31,7 @@ In your _Podfile_, below line added in the previous step, add the following:
 
 Add our *Tracker* dependency on your targets Podfile as:
 
-```pod 'DSFramework'```
+```pod 'DSTracker'```
 
 ### 1.4) Check your _Podfile_
 It should look like this:
