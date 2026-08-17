@@ -9,32 +9,27 @@
 /* Begin PBXBuildFile section */
 		99856D1A244463050063C634 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856D19244463050063C634 /* AppDelegate.swift */; };
 		99856D1C244463050063C634 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856D1B244463050063C634 /* SceneDelegate.swift */; };
-		99856D1E244463050063C634 /* UserIdentificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856D1D244463050063C634 /* UserIdentificationVC.swift */; };
-		99856D21244463050063C634 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99856D1F244463050063C634 /* Main.storyboard */; };
 		99856D232444630A0063C634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99856D222444630A0063C634 /* Assets.xcassets */; };
 		99856D262444630A0063C634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99856D242444630A0063C634 /* LaunchScreen.storyboard */; };
-		99856D2E2444760C0063C634 /* TripRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99856D2D2444760B0063C634 /* TripRecordingViewController.swift */; };
-		9F33FD022759F5BD00521FE2 /* PrintDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F33FD012759F5BD00521FE2 /* PrintDebug.swift */; };
-		F7B05A2574F33884778CBE7D /* Pods_DSTracker_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166DB2B61CEDC100C1409F04 /* Pods_DSTracker_Example.framework */; };
+		A1C100012E10000100000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C100022E10000100000002 /* ContentView.swift */; };
+		A1C100032E10000100000003 /* TrackerExampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C100042E10000100000004 /* TrackerExampleService.swift */; };
+		A1C100052E10000100000005 /* DSTracker in Frameworks */ = {isa = PBXBuildFile; productRef = A1C100072E10000100000007 /* DSTracker */; };
+		A1C100082E10000100000008 /* PrintDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C100092E10000100000009 /* PrintDebug.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04F54705E2956CFEE6550B0A /* Pods-DSTracker-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSTracker-Example.debug.xcconfig"; path = "Target Support Files/Pods-DSTracker-Example/Pods-DSTracker-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0F1194EADE37E2A11259240C /* Pods-DSTracker-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSTracker-Example.release.xcconfig"; path = "Target Support Files/Pods-DSTracker-Example/Pods-DSTracker-Example.release.xcconfig"; sourceTree = "<group>"; };
-		166DB2B61CEDC100C1409F04 /* Pods_DSTracker_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSTracker_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99856D16244463050063C634 /* DSTracker-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DSTracker-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99856D19244463050063C634 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99856D1B244463050063C634 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		99856D1D244463050063C634 /* UserIdentificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdentificationVC.swift; sourceTree = "<group>"; };
-		99856D20244463050063C634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99856D222444630A0063C634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99856D252444630A0063C634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99856D272444630A0063C634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99856D2D2444760B0063C634 /* TripRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRecordingViewController.swift; sourceTree = "<group>"; };
-		9F33FD012759F5BD00521FE2 /* PrintDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintDebug.swift; sourceTree = "<group>"; };
 		9F6DACEE26D795AA004F8C68 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9F7407ED275FBDD90094268C /* Debug-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Config.xcconfig"; sourceTree = "<group>"; };
 		9F7407EE275FC04C0094268C /* Release-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Config.xcconfig"; sourceTree = "<group>"; };
+		A1C100022E10000100000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1C100042E10000100000004 /* TrackerExampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerExampleService.swift; sourceTree = "<group>"; };
+		A1C100092E10000100000009 /* PrintDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintDebug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,38 +37,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7B05A2574F33884778CBE7D /* Pods_DSTracker_Example.framework in Frameworks */,
+				A1C100052E10000100000005 /* DSTracker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		784B5E3D19A1CF52B04FD142 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				166DB2B61CEDC100C1409F04 /* Pods_DSTracker_Example.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8B9ACB45443480AF5CA6C0D4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				04F54705E2956CFEE6550B0A /* Pods-DSTracker-Example.debug.xcconfig */,
-				0F1194EADE37E2A11259240C /* Pods-DSTracker-Example.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		99856D0D244463040063C634 = {
 			isa = PBXGroup;
 			children = (
 				9F6DACEE26D795AA004F8C68 /* README.md */,
 				99856D18244463050063C634 /* DSTracker-Example */,
 				99856D17244463050063C634 /* Products */,
-				8B9ACB45443480AF5CA6C0D4 /* Pods */,
-				784B5E3D19A1CF52B04FD142 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,15 +66,14 @@
 			children = (
 				99856D19244463050063C634 /* AppDelegate.swift */,
 				99856D222444630A0063C634 /* Assets.xcassets */,
+				A1C100022E10000100000002 /* ContentView.swift */,
 				9F7407ED275FBDD90094268C /* Debug-Config.xcconfig */,
 				99856D272444630A0063C634 /* Info.plist */,
 				99856D242444630A0063C634 /* LaunchScreen.storyboard */,
-				99856D1F244463050063C634 /* Main.storyboard */,
-				9F33FD012759F5BD00521FE2 /* PrintDebug.swift */,
+				A1C100092E10000100000009 /* PrintDebug.swift */,
 				9F7407EE275FC04C0094268C /* Release-Config.xcconfig */,
 				99856D1B244463050063C634 /* SceneDelegate.swift */,
-				99856D1D244463050063C634 /* UserIdentificationVC.swift */,
-				99856D2D2444760B0063C634 /* TripRecordingViewController.swift */,
+				A1C100042E10000100000004 /* TrackerExampleService.swift */,
 			);
 			path = "DSTracker-Example";
 			sourceTree = "<group>";
@@ -110,18 +85,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99856D2A2444630A0063C634 /* Build configuration list for PBXNativeTarget "DSTracker-Example" */;
 			buildPhases = (
-				8C9BF300293950B8F2037DE9 /* [CP] Check Pods Manifest.lock */,
-				9F8B82452757B9770009DD08 /* 🚙🤓 Custom scripts */,
 				99856D12244463050063C634 /* Sources */,
 				99856D13244463050063C634 /* Frameworks */,
 				99856D14244463050063C634 /* Resources */,
-				500FE70448AB205562A33E52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "DSTracker-Example";
+			packageProductDependencies = (
+				A1C100072E10000100000007 /* DSTracker */,
+			);
 			productName = "DriveSmartCoreExample-Swift";
 			productReference = 99856D16244463050063C634 /* DSTracker-Example.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 99856D0D244463040063C634;
+			packageReferences = (
+				A1C100062E10000100000006 /* XCRemoteSwiftPackageReference "Private-Clients-SPM-Packages" */,
+			);
 			productRefGroup = 99856D17244463050063C634 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,96 +144,27 @@
 			files = (
 				99856D262444630A0063C634 /* LaunchScreen.storyboard in Resources */,
 				99856D232444630A0063C634 /* Assets.xcassets in Resources */,
-				99856D21244463050063C634 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		500FE70448AB205562A33E52 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DSTracker-Example/Pods-DSTracker-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DSTracker-Example/Pods-DSTracker-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DSTracker-Example/Pods-DSTracker-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8C9BF300293950B8F2037DE9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DSTracker-Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9F8B82452757B9770009DD08 /* 🚙🤓 Custom scripts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "🚙🤓 Custom scripts";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99856D12244463050063C634 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99856D1E244463050063C634 /* UserIdentificationVC.swift in Sources */,
-				99856D2E2444760C0063C634 /* TripRecordingViewController.swift in Sources */,
-				9F33FD022759F5BD00521FE2 /* PrintDebug.swift in Sources */,
+				A1C100012E10000100000001 /* ContentView.swift in Sources */,
+				A1C100032E10000100000003 /* TrackerExampleService.swift in Sources */,
 				99856D1A244463050063C634 /* AppDelegate.swift in Sources */,
 				99856D1C244463050063C634 /* SceneDelegate.swift in Sources */,
+				A1C100082E10000100000008 /* PrintDebug.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		99856D1F244463050063C634 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				99856D20244463050063C634 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		99856D242444630A0063C634 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -389,7 +298,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LQ5962T83B;
 				INFOPLIST_FILE = "$(SRCROOT)/$(TARGET_NAME)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -409,9 +317,7 @@
 			baseConfigurationReference = 9F7407EE275FC04C0094268C /* Release-Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = LQ5962T83B;
+				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/$(TARGET_NAME)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -421,7 +327,6 @@
 				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.drivesmart.SDKSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "DS-SDK-Example";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -449,6 +354,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A1C100062E10000100000006 /* XCRemoteSwiftPackageReference "Private-Clients-SPM-Packages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://dev.azure.com/tfsdrivesmart/Drive%20Smart%202.0/_git/Private-Clients-SPM-Packages";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1C100072E10000100000007 /* DSTracker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A1C100062E10000100000006 /* XCRemoteSwiftPackageReference "Private-Clients-SPM-Packages" */;
+			productName = DSTracker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 99856D0E244463040063C634 /* Project object */;
 }
