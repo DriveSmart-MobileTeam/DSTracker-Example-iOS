@@ -9,6 +9,4 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-#include "Pods/Target Support Files/Pods-DSTracker-Example/Pods-DSTracker-Example.release.xcconfig"
-
 DSTRACKER_LICENSE_KEY=REPLACE_THIS_WITH_YOUR_PRODUCTION_LICENSE_KEY

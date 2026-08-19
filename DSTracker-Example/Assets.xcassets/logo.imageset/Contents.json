@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "mainLogo1200X330.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "mainLogo1200X330@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "mainLogo1200X330@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "logo (1).pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

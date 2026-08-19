@@ -1,271 +1,314 @@
 [![DSTracker](https://img.shields.io/badge/platform-iOS%2012.1-blue)](https://github.com/DriveSmart-MobileTeam/)
-[![Swift](https://img.shields.io/badge/Language-ObjectiveC%20Swift_5.0-orange)](https://img.shields.io/badge/Swift-5.Orange)
+[![Swift](https://img.shields.io/badge/Language-Swift%205.0-orange)](https://swift.org)
 
 # DriveSmart *Tracker* Swift example
 
-This project act as an example on how to integrate DriveSmart (*DS*  in advance) *Tracker* on an iOS app written in Swift.
+This project acts as an example of how to integrate DriveSmart (*DS* from now on) *Tracker* into an iOS app written in Swift.
+
+The example application uses SwiftUI and therefore requires iOS 13 or later. The *Tracker* SDK itself supports iOS 12.1 or later.
 
 ## Requisites
-* [Cocoapods](https://cocoapods.org) as the dependency manager
-* iOS 12.1 in advance as requirement
-* An __access_token__ provided by *DS*
-* You will need an __license key__ provided by *DS*  in order to make your app work with our *Tracker*.
-* Your app needs to be configured for request user location (follow [Apple documentation](https://developer.apple.com/documentation/corelocation/adding_location_services_to_your_app) )
 
-If your project doesn´t fills any of this requirements please contact us at [mobileteam@drive-smart.com](mailto:mobileteam@drive-smart.com) in order to look for alternatives for use our *Tracker*.
+* Swift Package Manager as the dependency manager.
+* iOS 12.1 or later to integrate the SDK. This example application requires iOS 13 or later.
+* Access to the private *DS* Swift Package repository.
+* An Azure DevOps Personal Access Token provided by *DS*.
+* A __license key__ provided by *DS* in order to make your app work with our *Tracker*.
+* Your app needs to be configured to request user location and motion permissions. See [Apple documentation](https://developer.apple.com/documentation/corelocation/adding_location_services_to_your_app).
+
+If your project does not meet any of these requirements, please contact us at [mobileteam@drive-smart.com](mailto:mobileteam@drive-smart.com) so we can look for alternatives for using our *Tracker*.
 
 ## 1) Installation
 
-### 1.1) Add the __access_token__ to your Podfile
-Add this line to the top of your  _Podfile_:
-```ds_pod_repo_token = "REPLACE_WITH_THE_PROVIDED_ACCESS_TOKEN"```
-Replace _REPLACE_WITH_THE_PROVIDED_ACCESS_TOKEN_ with the __access_token__ provided by *DS*
+### 1.1) Configure access to the private repository
 
-> Giving this you can treat this __access_token__ in a secure way on your CI/CD pipelines
-### 1.2) Add the *DS* Cocoapods respository as source on your Podifle
-In your _Podfile_, below line added in the previous step, add the following:
+The package repository and the binary artifact are private. Add the credentials provided by *DS* to your `~/.netrc` file:
 
-```source "https://#{ds_pod_repo_token}@tfsdrivesmart.visualstudio.com/DefaultCollection/Drive%20Smart%202.0/_git/Private-Clients-Pod-Specs"```
-
-### 1.3) Add *DS* as a new dependency
-
-Add our *Tracker* dependency on your targets Podfile as:
-
-```pod 'DSTracker'```
-
-### 1.4) Check your _Podfile_
-It should look like this:
-
-```
-platform :ios, '12.1'
-use_frameworks!
-
-# // MARK: - 1.1
-ds_pod_repo_token = "irjnntdvscy4jbfn6hxva6yq3ty6hcli6p3pbqqmlyibvzpuurpq"
-# // MARK: - 1.2
-source "https://#{ds_pod_repo_token}@tfsdrivesmart.visualstudio.com/DefaultCollection/Drive%20Smart%202.0/_git/Private-Clients-Pod-Specs"
-
-project 'DSTracker-Example'
-
-target 'DSTracker-Example' do
-  # MARK: - 1.3
-  pod 'DSTracker', '1.0.0'
-end
-
+```text
+machine dev.azure.com
+login YOUR_AZURE_USERNAME
+password YOUR_PERSONAL_ACCESS_TOKEN
 ```
 
-### 1.5) Install pods
-Just execute `pod install --repo-update` and open the workspace for the app to run.
+Protect the file by executing:
+
+```bash
+chmod 600 ~/.netrc
+```
+
+> Never include the Personal Access Token in your source code, `Package.swift`, project URL or Git repository.
+
+### 1.2) Add the *DS* Swift Package
+
+In Xcode, select **File > Add Package Dependencies...** and enter the repository URL provided by *DS*:
+
+```text
+https://dev.azure.com/tfsdrivesmart/Drive%20Smart%202.0/_git/Private-Clients-SPM-Packages
+```
+
+Select **Exact Version**, enter `1.3.0`, and choose the project where the dependency must be added.
+
+![Add the DSTracker package and select its version](README-assets/01-add-package.png)
+
+### 1.3) Add *DSTracker* to your application target
+
+Select the `DSTracker` library and add it to your application target.
+
+![Add the DSTracker product to the target](README-assets/02-add-product.png)
+
+When the operation finishes, `DSTracker 1.3.0` will appear under **Package Dependencies**.
+
+![DSTracker installed under Package Dependencies](README-assets/03-package-installed.png)
+
+### 1.4) Import *DSTracker*
+
+You can now import the SDK from any Swift file that needs to use it:
+
+```swift
+import DSTracker
+```
+
+There is no `pod install` step and the project does not need to be opened from a CocoaPods `.xcworkspace` file.
 
 ## 2) Configure the *Tracker*
 
-In order to configure the *Tracker* to work with yours *DS* account credentials, it needs you to provide the __license key__.
+In order to configure the *Tracker* to work with your *DS* account credentials, you need to provide the __license key__.
 
-As the main purpouse of the *Tracker* is to track user device location, the app to use it needs to be granted with `Location Always` user permission for it to work on foreground and background.
+As the main purpose of the *Tracker* is to track user device location, your app needs to be granted `Location Always` permission for it to work in foreground and background.
 
-> If your app pretends to use the *Tracker* intensively we encourage you to do this in your _UIApplicationDelegate_.
-> 
+> If your app intends to use the *Tracker* intensively, we encourage you to configure it from your `UIApplicationDelegate` or equivalent application startup flow.
+
 ### 2.1) Default configuration
-In this way the *Tracker* will rely on that your app already handles the permissions request and will operate silently, but informing about any arros using the `TrackerListenerInterface`, so we encourage you to implement it for keep track of those errors.
 
-```
+In this configuration, the *Tracker* relies on your app to handle permission requests. It reports errors through `TrackerListenerInterface`, so we encourage you to implement it to keep track of those errors.
+
+```swift
 import DSTracker
 
 func anySwiftFunction() {
-  Tracker.configure(licenseKey: "__license key__") { result in
-      if let error = result.failure {
-          fatalError(error.localizedDescription)
-      } else if let successData = result.success {
-          print("\(#function) DSTracker.configure result:\(successData)")
-      }
-  }
+    Tracker.configure(licenseKey: "__license key__") { result in
+        if let error = result.failure {
+            print(error.localizedDescription)
+        } else if let successData = result.success {
+            print("\(#function) DSTracker.configure result: \(successData)")
+        }
+    }
 }
 ```
 
-> In this demo project you can add this license key to the `Debug-Config.xcconfig` and `Release-Config.xcconfig` files included being, you can find more info about this `*.xconfig` files in [this post](https://nshipster.com/xcconfig/).
+> In this demo project you can add the license key to the `Debug-Config.xcconfig` and `Release-Config.xcconfig` files. You can find more information about `*.xcconfig` files in [this article](https://nshipster.com/xcconfig/).
 
 ### 2.2) Configure the *Tracker* to request permissions
-You can configure the *Tracker* for let it request permissions to the user just when needed:
 
-```
+You can configure the *Tracker* to request permissions when needed:
+
+```swift
 import DSTracker
 
 func anySwiftFunction() {
-  Tracker.configure(
-    licenseKey: "__license key__", 
-    doRequestPermissions: true
-  ) { result in
-      if let error = result.failure {
-          fatalError(error.localizedDescription)
-      } else if let successData = result.success {
-          print("\(#function) DSTracker.configure result:\(successData)")
-      }
-  }
+    Tracker.configure(
+        licenseKey: "__license key__",
+        doRequestPermissions: true
+    ) { result in
+        if let error = result.failure {
+            print(error.localizedDescription)
+        } else if let successData = result.success {
+            print("\(#function) DSTracker.configure result: \(successData)")
+        }
+    }
 }
 ```
 
+The host application must include the corresponding location and motion usage descriptions in `Info.plist` and enable **Background Modes > Location updates**.
+
 ## 3) Setup the *Tracker* with your users
-> You can check this section followin code of "SetupViewController" class provided inside the example project 
 
-As you pretend to use *Tracker* for record trips associated with your users, you will need to identify them within the *Tracker*. For that you have 2 options:
+> You can check the implementation of these examples in `TrackerExampleService.swift`.
 
-### 3.a) Register your user into the *Tracker* 
+To use the *Tracker* to record trips associated with your users, you need to identify them within the *Tracker*. You have three options.
 
-```
+### 3.a) Register your user into the *Tracker*
+
+```swift
 import DSTracker
 
 func anySwiftFunction() {
-    let uniqueID = "some user identifier that's under your control, typically it use to be an user`s email"
+    let uniqueID = "an identifier under your control, typically your user's ID"
+
     Tracker.getOrAddUserIdBy(clientId: uniqueID) { result in
         if let error = result.failure {
             print("\(#file) - \(#function) addUniqueUserId error=\(error.localizedDescription)")
         }
-        guard let trackerUserId = result.success as? String else {
-            print("\(#file) - \(#function) Response doesn't contains a DS user ID, please contact DS.")
+
+        guard let trackerUserID = result.success as? String else {
+            print("The response does not contain a DSTracker user ID. Please contact DS.")
             return
         }
-        // MARK: - On success, the DSTracker is setted up with a DSTracker user ID,
-        // so you are ready to start recording trip for that use
+
+        // On success, DSTracker is configured with this user ID and is ready
+        // to start recording trips for that user.
+        print(trackerUserID)
     }
 }
 ```
-> In order to improve the setup workflow we recommend you to store the "trackerUserId" returned here for use it in future app runs using the method below.
+
+> We recommend storing the `trackerUserID` returned here so it can be reused in future application runs using the method below.
+
 ### 3.b) Setup with a known *Tracker* user identifier
-If you known the *Tracker* user id, or you stored the one provided in teh step *3.a*, you can just use it for a quick setup like:
 
-```
+If you already know the *Tracker* user ID, or stored the one provided in step *3.a*, you can use it for a quicker setup:
+
+```swift
 import DSTracker
 
 func anySwiftFunction() {
     Tracker.setUserId("a known DSTracker user identifier") { result in
         if let error = result.failure {
-            print("\(#file) - \(#function) addUniqueUserId error=\(error.localizedDescription)")
+            print("\(#file) - \(#function) setUserId error=\(error.localizedDescription)")
         }
-        guard let trackerUserId = result.success as? String else {
-            print("\(#file) - \(#function) Response doesn't contains a DS user ID, please contact DS.")
+
+        guard let trackerUserID = result.success as? String else {
+            print("The response does not contain a DSTracker user ID. Please contact DS.")
             return
         }
+
+        print(trackerUserID)
     }
 }
 ```
 
-### 3.c) Get a DSTracker user identifier for you to associate it with your user
-If you dont´w wnat to pass your user's identifier to our systems for us to stablish the relationship with our user identifier, you can get a DSTracker user identifier for yopu to save it and stablish the relationship with your userts. For that use this:
+### 3.c) Get a *Tracker* user identifier to associate with your user
 
+If you do not want to send your own user identifier to our systems, request an anonymous *Tracker* user identifier and store the relationship in your own system:
 
-```
+```swift
 import DSTracker
 
 func anySwiftFunction() {
-    Tracker.setUserId("a known DSTracker user identifier") { result in
+    Tracker.getAnonymousUserId { result in
         if let error = result.failure {
-            print("\(#file) - \(#function) addUniqueUserId error=\(error.localizedDescription)")
+            print("\(#file) - \(#function) anonymous user error=\(error.localizedDescription)")
         }
-        guard let trackerUserId = result.success as? String else {
-            print("\(#file) - \(#function) Response doesn't contains a DS user ID, please contact DS.")
+
+        guard let trackerUserID = result.success as? String else {
+            print("The response does not contain a DSTracker user ID. Please contact DS.")
             return
         }
+
+        print(trackerUserID)
     }
 }
 ```
 
 ## 4) Trip recording
-> You can check this section following code of "TripRecordingViewController" class provided inside the example project.
-At this point all is set and ready to start recording trips, so:
-### 4.1) Start
-This method will start capturing device location inmediately based until you call to following method.
-```
-    @IBAction func buttonStart(_ sender: Any) {
-        // MARK: - 4
-        Tracker.start()
-```
-### 4.2) Get information about the trip in progress
-At any time that *Tracker* is recordin a trip, you can check how it is going, again taking as example the code inside `TripRecordingViewController`, you can do something similar to:
-```
-    @objc func getTrackingStatusInfo() {
-        let trackingStatus = Tracker.getStatus()
 
-        DispatchQueue.main.async {
-            switch trackingStatus.levelGPS {
-            case .bad:
-                self.labelGPS.text = "BAD"
-            case .good:
-                self.labelGPS.text = "GOOD"
-            case .regular:
-                self.labelGPS.text = "REGULAR"
-            @unknown default:
-                break
-            }
-            self.labelTime.text = self.secondsToTime(trackingStatus.timer)
-            self.labelDistance.text = "\(trackingStatus.totalDistance) m"
-            self.labelTripStart.text = self.dateToString(date: trackingStatus.serviceTime,
-                                                         dateFormat: "dd/MM/yyy HH:mm:ss")
-        }
+> You can check this section in `TrackerExampleService.swift` and its presentation in `ContentView.swift`.
+
+At this point everything is configured and ready to start recording trips.
+
+### 4.1) Start
+
+This method starts capturing the device location until you call the stop method:
+
+```swift
+func startTrip() {
+    Tracker.start()
+}
+```
+
+### 4.2) Get information about the trip in progress
+
+At any time while the *Tracker* is recording a trip, you can check its current status:
+
+```swift
+func getTrackingStatusInfo() {
+    let trackingStatus = Tracker.getStatus()
+
+    switch trackingStatus.levelGPS {
+    case .bad:
+        print("BAD")
+    case .good:
+        print("GOOD")
+    case .regular:
+        print("REGULAR")
+    @unknown default:
+        break
     }
 
+    print(trackingStatus.timer)
+    print(trackingStatus.totalDistance)
+    print(trackingStatus.serviceTime)
+}
 ```
+
 ### 4.3) Stop
-This will stop capturing device location and will try to send all pending tracking data to our servers.
+
+This stops capturing device location and tries to send all pending tracking data to our servers:
+
+```swift
+func stopTrip() {
+    Tracker.stop()
+}
 ```
-    @IBAction func buttonStop(_ sender: Any) {
-        // MARK: - 7) Stop trip recording
-        Tracker.stop()
+
+## 5) Request background location permission
+
+For trip recording to continue while the application is in the background, request `Always` authorization after the user grants `When In Use` authorization:
+
+```swift
+func locationManager(
+    _ manager: CLLocationManager,
+    didChangeAuthorization status: CLAuthorizationStatus
+) {
+    if status == .authorizedWhenInUse {
+        manager.requestAlwaysAuthorization()
+    }
+}
 ```
+
+The exact system prompts are controlled by iOS. The corresponding usage descriptions must be present in `Info.plist`.
+
 ## 6) [Optional] Get informed about *Tracker* events and errors
-The *Tracker* uses delegation for inform about important internal events that you may need for your integration. 
-For that, provide the delegate implementation of `TrackerListenerInterface` like:
+
+The *Tracker* uses delegation to report important internal events that may be useful for your integration.
+
+First, provide an implementation of `TrackerListenerInterface` as the delegate:
+
+```swift
+Tracker.delegate = self
 ```
-extension TripRecordingViewController: DSTrackerDelegate {
-    //...
-    Tracker.delegate = self
-```
-And implemente the protocol like this:
-``` 
-    // MARK: - TrackerListenerInterface
+
+Then implement the protocol:
+
+```swift
+extension TrackerExampleService: TrackerListenerInterface {
     func onEvent(_ event: TrackerEvent) {
-        var whatHappened = "Unnhandled event"
         switch event {
-            case .dataAllSent:
-                whatHappened = "All pending tracking data batch has been sent to our servers"
-
-            case .dataSendFailed:
-                whatHappened = "A tracking data batch has failed to been comunicated to our servers"
-
-            case .dataSendPaused:
-                whatHappened = "A tracking data batch has failed to been comunicated to our servers"
-
-            case .dataSendStarted:
-                whatHappened = "A tracking data batch comunication has started"
-
-            case .dataSendSuccess:
-                whatHappened = "A tracking data batch comunication has succeded"
-
-            case .trackingAlreadyStarted:
-                whatHappened = "An attempt to start recording has been performed while it was already being done"
-
-            case .trackingAlreadyStopped:
-                whatHappened = "An attempt to stop recording has been performed while it was already sttoped"
-
-            case .trackingStarted:
-                whatHappened = "Tracker has start tracking location"
-
-            case .trackingStopped:
-                whatHappened = "Tracker has stopped tracking location"
-            @unknown default: break
+        case .dataAllSent:
+            print("All pending tracking data has been sent to our servers")
+        case .dataSendFailed:
+            print("A tracking data batch could not be sent")
+        case .dataSendPaused:
+            print("Tracking data communication has been paused")
+        case .dataSendStarted:
+            print("Tracking data communication has started")
+        case .dataSendSuccess:
+            print("Tracking data communication succeeded")
+        case .trackingAlreadyStarted:
+            print("Tracking was already running")
+        case .trackingAlreadyStopped:
+            print("Tracking was already stopped")
+        case .trackingStarted:
+            print("Tracker started tracking location")
+        case .trackingStopped:
+            print("Tracker stopped tracking location")
+        @unknown default:
+            break
         }
-        print("\(#function) \(#file) : \(whatHappened)")
     }
 
     func onError(_ error: TrackerError) {
-        switch error {
-            case .insecureDevice, .invalidCarplate, .invalidClientId, .invalidLicense, .invalidUserId,
-                    .locationAuthorizationNotGranted, .locationServicesDisabled, .manuallyLaunchNotConfigured,
-                    .missingLicense, .missingBluetoothDevicesParameter, .motionTrackingAuthorizationNotGranted,
-                    .motionTrackingNotAvailable, .noNetworkConnection, .unknown, .userIdNotConfigured:
-                break
-            @unknown default:
-                break
-        }
-        print("\(#function) \(#file) : \(error.localizedDescription)")
+        print(error.localizedDescription)
     }
-``` 
+}
+```
